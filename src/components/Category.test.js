@@ -25,7 +25,7 @@ describe('Category', () => {
 
   describe("when creating a new category", () => {
     let category;
-
+    // done is a optional parameter for handling async code
     beforeEach(done => {
       category = mount(<Category { ...props }/>)
 
@@ -34,8 +34,23 @@ describe('Category', () => {
       setTimeout(done);
     })
 
+
     it('logs the category', () => {
-      console.log(category.debug())
+      category.update();
+      // console.log(category.debug())
+    })
+
+    it('initializes the clues in the state', () => {
+      // console.log(category.state())
+      expect(category.state().clues).toEqual(clues);
+    });
+
+    it('renders the cateogy title', () => {
+      expect(category.find('h2').text()).toEqual(props.category.title)
+    })
+
+    it('renders the correct number of clues', () => {
+      expect(category.update().find('Clue').length).toEqual(clues.length)
     })
   })
 })
