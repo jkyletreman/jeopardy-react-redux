@@ -1,10 +1,8 @@
-const SET_CATEGORIES = 'SET_CATEGORIES';
+export const SET_CATEGORIES = 'SET_CATEGORIES';
 
-const setCategories = (categories) => {
+export const setCategories = (categories) => {
   return {
     type: SET_CATEGORIES,
     categories
   }
 }
-
-export default { SET_CATEGORIES, setCategories }
