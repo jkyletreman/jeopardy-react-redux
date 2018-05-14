@@ -8,3 +8,11 @@ body {
   left: 30px;
   top: 30px;
 }
+
+.clue {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}

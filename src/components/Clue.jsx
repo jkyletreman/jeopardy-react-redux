@@ -4,7 +4,7 @@ export class Clue extends Component {
   render() {
     const { answer, question, value } = this.props.clue;
     return (
-      <div>
+      <div className="clue">
         <h4>{value || 'unknown'}</h4>
         <hr />
         <h5>{question}</h5>
