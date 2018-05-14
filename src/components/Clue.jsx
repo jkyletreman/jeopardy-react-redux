@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 
 export class Clue extends Component {
+  constructor() {
+    super();
+    this.state = { reveal: false }
+  }
   render() {
     const { answer, question, value } = this.props.clue;
     return (
-      <div className="clue">
+      <div className="clue" onClick={() => { this.setState({ reveal: true })}}>
         <h4>{value || 'unknown'}</h4>
         <hr />
         <h5>{question}</h5>
         <hr />
-        <h5>{answer}</h5>
+        <h5 className={this.state.reveal ? "text-revealed" : 'text-hidden'}>{answer}</h5>
       </div>
     )
   }
