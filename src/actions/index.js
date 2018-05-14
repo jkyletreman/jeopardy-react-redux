@@ -6,3 +6,5 @@ const setCategories = (categories) => {
     categories
   }
 }
+
+export default { SET_CATEGORIES, setCategories }
