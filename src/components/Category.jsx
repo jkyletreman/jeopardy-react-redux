@@ -18,9 +18,6 @@ export class Category extends Component {
   render() {
     return (
       <div>
-        <Link className="link-home" to="/">
-          <h4>Home</h4>
-        </Link>
         <h2>{this.props.category.title}</h2>
         {this.state.clues.map(clue => {
           return <Clue clue={clue.id} clue={clue} />
@@ -29,9 +26,22 @@ export class Category extends Component {
     );
   }
 }
+// separated components so testing doesnt require React Router enviornment
+class LinkedCategory extends Component {
+  render() {
+    return (
+      <div>
+        <Link className="link-home" to="/">
+          <h4>Home</h4>
+        </Link>
+        <Category category={this.props.category} />
+      </div>
+    )
+  }
+}
 
 const mapStateToProps = state => {
   return { category: state.category };
 };
 
-export default connect(mapStateToProps, null)(Category);
+export default connect(mapStateToProps, null)(LinkedCategory);
