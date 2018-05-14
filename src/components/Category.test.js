@@ -7,8 +7,10 @@ import { fakeServer } from 'sinon';
 const props = { category: categories[0] }
 
 describe('Category', () => {
+  let server;
+
   beforeEach(() => {
-    const server = fakeServer.create();
+    server = fakeServer.create();
 
     server.respondWith(
       'GET',
@@ -16,9 +18,24 @@ describe('Category', () => {
       [
         200,
         { 'Content-Type': 'application/json' },
-        JSON.stringify(clue);
+        JSON.stringify(clues)
       ]
     )
   })
-  const category = mount(<Category { ...props }/>)
+
+  describe("when creating a new category", () => {
+    let category;
+
+    beforeEach(done => {
+      category = mount(<Category { ...props }/>)
+
+      server.respond();
+
+      setTimeout(done);
+    })
+
+    it('logs the category', () => {
+      console.log(category.debug())
+    })
+  })
 })
