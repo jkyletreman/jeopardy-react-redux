@@ -31,7 +31,7 @@ class App extends Component {
 }
 // setting redux state
 const mapStateToProps = (state) => {
-  return { categories: state }
+  return { categories: state.categories }
 }
 // connect(mapStateToProps, { what needs to be available as props })(Component)
 export default connect(mapStateToProps, { setCategories })(App);
