@@ -20,7 +20,7 @@ export class Category extends Component {
       <div>
         <h2>{this.props.category.title}</h2>
         {this.state.clues.map(clue => {
-          return <Clue clue={clue.id} clue={clue} />
+          return <Clue key={clue.id} clue={clue} />
         })}
       </div>
     );
