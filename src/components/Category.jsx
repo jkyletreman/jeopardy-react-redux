@@ -9,7 +9,7 @@ export class Category extends Component {
         <Link className='link-home' to="/">
           <h4>Home</h4>
         </Link>
-        <h2>Categories:</h2>
+        <h2>{this.props.category.title}</h2>
       </div>
     );
   }
